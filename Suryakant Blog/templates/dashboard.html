@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block body %} 
+
+
+
+	<header class="masthead" style="background-image: url('{{url_for('static', filename='img/about-bg.jpg')}}')">
+	   <div class="overlay"></div>
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-lg-8 col-md-10 mx-auto">
+	          <div class="page-heading">
+	            <h1>Admin Dashboard</h1>
+	            <span class="subheading">control all the activity</span>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+  	</header>
+  
+  		<div class="container table-responsive-sm mx-auto ">
+  			<h4>Add New Post</h4>
+  			<a href="/edit/0">
+	  			<button  type="button" class="btn btn-primary">
+	  				Add Post
+	  			</button>
+  			</a>
+  			<br>
+  			<hr>
+  			<h4>Upload File</h4>
+
+  			<form action="/uploadimg" method= "POST" enctype="multipart/form-data" >
+
+  				<input type="file" id="myfile" name="myfile" value= "{{ a }}">
+  				<input type="submit"  value="Submit">
+
+
+  				
+
+
+  			</form>
+  			
+  		
+  			<br>
+  			<hr>
+  			<h4 class="text-center ">Blog Posts</h4>
+        <div class="table-responsive-sm">
+          <table class="table table-stripped ">
+
+          <tr class="text-center">
+            <th >Title</th>
+            <th >Content</th>
+            <th colspan="2">Action</th>
+          <tr>
+
+
+          {% for post in mypost %}
+          <tr>
+
+            <td>
+              {{ post.title }}
+              
+            </td>
+
+            <td>
+              {{ post.content }}
+              
+            </td>
+
+            <td>
+              <a href="/edit/{{post.sr_no}}">
+                <button type="button" class="btn btn-primary" name='edit'>Edit</button>
+              </a>
+
+            </td>
+            <td>
+              <a href="/delete/{{post.sr_no}}">
+              <button type="button" class="btn btn-danger" name='delete'> Delete </button>
+              </a>
+            </td>
+            
+          </tr>
+
+          {% endfor %}
+
+        </table>
+          
+        </div>
+  			
+  			
+  		</div>
+  
+    <hr>
+  		<a class="text-white" href="/dashboard/logout"> 
+  		<button class="btn  btn-primary">Sign out</button>
+  		</a>
+
+  	  
+      
+
+ 
+    {% endblock %}

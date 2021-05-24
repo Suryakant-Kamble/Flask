@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %} 
+	<header class="masthead" style="background-image: url('{{url_for('static', filename='img/about-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+          	<h5>Log in to Blog</h5>
+          	<br>
+            <form class="form-signin" action="/dashboard" method="POST">
+            		<div class="">
+	            		<div class="mb-4">
+							<input class="" type="text" name="user" placeholder="User Name"  required>
+						</div>
+						
+						<div class="mb-4">
+							<input class="" type="password" name="password" placeholder="Password" required>
+						</div>
+						<div>
+							<button class="" type="submit" class="btn btn-primary">Sign in</button>
+						</div>
+					</div>
+			</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+ {% endblock %}
